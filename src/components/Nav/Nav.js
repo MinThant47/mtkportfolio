@@ -14,58 +14,58 @@ const Nav = () => {
 
   return (
     <header>
-      <nav class="navigation container pt-4">
-        <div class="logo">
+      <nav className="navigation container pt-4">
+        <div className="logo">
           <h5>Marky</h5>
         </div>
 
-        <ul class={`nav-list ${toggle ? "active" : ""}`}>
-          <li class="nav-items">
-            <Link to="/" class="nav-links">
-              <i class="uil uil-estate nav-icons"></i>Home
+        <ul className={`nav-list ${toggle ? "active" : ""}`}>
+          <li className="nav-items">
+            <Link to="/" className="nav-links">
+              <i className="uil uil-estate nav-icons"></i>Home
             </Link>
           </li>
-          <li class="nav-items">
-            <Link to="/#about" class="nav-links">
-              <i class="uil uil-user nav-icons"></i>About
+          <li className="nav-items">
+            <Link to="/#about" className="nav-links">
+              <i className="uil uil-user nav-icons"></i>About
             </Link>
           </li>
-          <li class="nav-items">
-            <Link to="/#skills" class="nav-links">
-              <i class="uil uil-setting nav-icons"></i>Skills
+          <li className="nav-items">
+            <Link to="/#skills" className="nav-links">
+              <i className="uil uil-setting nav-icons"></i>Skills
             </Link>
           </li>
-          <li class="nav-items">
-            <Link to="/#services" class="nav-links">
-              <i class="uil uil-briefcase-alt nav-icons"></i>Services
+          <li className="nav-items">
+            <Link to="/#services" className="nav-links">
+              <i className="uil uil-briefcase-alt nav-icons"></i>Services
             </Link>
           </li>
-          <li class="nav-items">
-            <Link to="/#porfolio" class="nav-links">
-              <i class="uil uil-scenery nav-icons"></i>Portfolio
+          <li className="nav-items">
+            <Link to="/#porfolio" className="nav-links">
+              <i className="uil uil-scenery nav-icons"></i>Portfolio
             </Link>
           </li>
-          <li class="nav-items">
-            <Link to="/#contact" class="nav-links">
-              <i class="uil uil-message nav-icons"></i> Contact
+          <li className="nav-items">
+            <Link to="/#contact" className="nav-links">
+              <i className="uil uil-message nav-icons"></i> Contact
             </Link>
           </li>
         </ul>
 
-        <div class="nav-btn">
+        <div className="nav-btn">
           <i
             id="theme"
             onClick={() => {
               setIsDark((prev) => !prev);
             }}
-            class={`${isDark ? "uil uil-sun " : "uil uil-moon "} theme`}
+            className={`${isDark ? "uil uil-sun " : "uil uil-moon "} theme`}
           ></i>
           <i
             id="nav-toggle"
             onClick={() => {
               setToggle((prev) => !prev);
             }}
-            class={`uil ${
+            className={`uil ${
               toggle ? "uil-times-circle" : "uil-apps "
             } nav-toggle`}
           ></i>
