@@ -1,38 +1,102 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap");
+
+:root {
+  --primary-color: #ff931e;
+  --primary-color-alt: #f57e00;
+  --secondary-color: #7f7f7f;
+  --secondary-color-alt: #5b5b5b;
+  --title-color: #5a5a5a;
+  --nav-item-color: var(--secondary-color);
+
+  --white: #ffffff;
+
+  --bg-color: #fefefe;
+  --card-bg-color: #fefefe;
+
+  --fs-xl: 2rem;
+  --fs-16: 1.6rem;
+  --fs-12: 1.2rem;
+  --fs-1: 1rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  position: relative;
+  background-color: var(--bg-color);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+body.dark {
+  --title-color: var(--white);
+  --bg-color: #292929;
+  --card-bg-color: #2c2c2c;
+  --nav-item-color: var(--white);
 }
 
-.App-link {
-  color: #61dafb;
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+a {
+  text-decoration: none;
 }
+
+h3,
+h4,
+h5,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Ultility Classes */
+
+.section {
+  margin: 5rem auto;
+}
+
+.btn--primary {
+  border-radius: 4px;
+  border: none;
+  color: var(--white);
+  outline: none;
+  padding: 8px 34px;
+  background-color: var(--primary-color);
+}
+
+.btn--primary:hover {
+  background-color: var(--primary-color-alt);
+  color: var(--white);
+}
+
+.title-text {
+  font-size: var(--fs-16);
+  color: var(--title-color);
+  font-weight: bold;
+}
+
+.secondary-title-text {
+  font-size: var(--fs-12);
+  color: var(--title-color);
+  font-weight: bold;
+}
+
+.third-title-text {
+  font-size: var(--fs-12);
+  color: var(--title-color);
+  font-weight: 500;
+}
+
+.para-text {
+  color: var(--secondary-color);
+  line-height: 1.8rem;
+}
+
+/* Ultility Classes */
