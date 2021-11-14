@@ -3,6 +3,9 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Nav from "./components/Nav/Nav";
 import Footer from "./components/Footer/Footer";
 import Home from "./components/Home";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import AllProjects from "./components/AllProjects";
 
 function App() {
   return (
@@ -12,6 +15,9 @@ function App() {
         <Switch>
           <Route exact path="/">
             <Home />
+          </Route>
+          <Route path="/all-projects">
+            <AllProjects />
           </Route>
         </Switch>
         <Footer />

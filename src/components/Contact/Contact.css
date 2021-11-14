@@ -1,0 +1,66 @@
+#contact {
+  margin-top: 6rem;
+}
+
+.contact-container {
+  margin-top: 2rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 4rem;
+}
+
+.contact-content {
+  flex-direction: row;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 1.5rem;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-icon {
+  color: var(--primary-color);
+  font-size: 3rem;
+  margin-right: 1rem;
+}
+
+.contact-svg {
+  height: 250px;
+}
+
+@media only screen and (max-width: 760px) {
+  .contact-container {
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .contact-message-icon {
+    display: none;
+  }
+  .contact-svg {
+    height: 200px;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  .contact-content {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .contact-svg {
+    height: 150px;
+  }
+  .contact-info {
+    align-items: center;
+    justify-content: center;
+  }
+}

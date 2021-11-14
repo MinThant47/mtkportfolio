@@ -19,6 +19,10 @@
   --fs-1: 1rem;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -97,6 +101,10 @@ p {
 .para-text {
   color: var(--secondary-color);
   line-height: 1.8rem;
+}
+
+.category-text {
+  color: var(--secondary-color);
 }
 
 /* Ultility Classes */

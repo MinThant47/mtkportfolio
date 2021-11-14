@@ -1,6 +1,6 @@
 import "./Nav.css";
-import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Nav = () => {
   const [isDark, setIsDark] = useState(false);
@@ -16,39 +16,41 @@ const Nav = () => {
     <header>
       <nav className="navigation container pt-4">
         <div className="logo">
-          <h5>Marky</h5>
+          <Link to="/">
+            <h5 className="title-text">MTK</h5>
+          </Link>
         </div>
 
         <ul className={`nav-list ${toggle ? "active" : ""}`}>
           <li className="nav-items">
-            <Link to="/" className="nav-links">
+            <a href="/" className="nav-links">
               <i className="uil uil-estate nav-icons"></i>Home
-            </Link>
+            </a>
           </li>
           <li className="nav-items">
-            <Link to="/#about" className="nav-links">
+            <a href="/#about" className="nav-links">
               <i className="uil uil-user nav-icons"></i>About
-            </Link>
+            </a>
           </li>
           <li className="nav-items">
-            <Link to="/#skills" className="nav-links">
+            <a href="/#skills" className="nav-links">
               <i className="uil uil-setting nav-icons"></i>Skills
-            </Link>
+            </a>
           </li>
           <li className="nav-items">
-            <Link to="/#services" className="nav-links">
+            <a href="/#services" className="nav-links">
               <i className="uil uil-briefcase-alt nav-icons"></i>Services
-            </Link>
+            </a>
           </li>
           <li className="nav-items">
-            <Link to="/#porfolio" className="nav-links">
+            <a href="/#portfolio" className="nav-links">
               <i className="uil uil-scenery nav-icons"></i>Portfolio
-            </Link>
+            </a>
           </li>
           <li className="nav-items">
-            <Link to="/#contact" className="nav-links">
+            <a href="/#contact" className="nav-links">
               <i className="uil uil-message nav-icons"></i> Contact
-            </Link>
+            </a>
           </li>
         </ul>
 

@@ -21,7 +21,7 @@
 }
 
 .landing .content .btn-links .btn-icons {
-  font-size: var(--fs-12);
+  font-size: 1.5rem;
   color: var(--secondary-color);
 }
 
