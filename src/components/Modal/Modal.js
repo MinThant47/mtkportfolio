@@ -1,12 +1,18 @@
 import "./Modal.css";
 import { useState } from "react";
 
-const Modal = ({ open, setOpen, data }) => {
+const Modal = ({ open, setOpen, data, setSelectedData }) => {
   const [selectedImg, SetselectedImg] = useState(0);
   return (
     <div className={`project-detail ${open ? "open" : ""}`}>
       <div className="project">
-        <div onClick={() => setOpen(0)} className="close-icon">
+        <div
+          onClick={() => {
+            setSelectedData(null);
+            setOpen(0);
+          }}
+          className="close-icon"
+        >
           <i className="uil uil-times-circle"></i>
         </div>
 
@@ -43,7 +49,13 @@ const Modal = ({ open, setOpen, data }) => {
           <p className="para-text mb-2">{data.category}</p>
           <hr />
           <p className="para-text mb-4">{data.text}</p>
-          <button onClick={() => setOpen(0)} className="btn--primary">
+          <button
+            onClick={() => {
+              setSelectedData(null);
+              setOpen(0);
+            }}
+            className="btn--primary"
+          >
             Back
           </button>
         </div>

@@ -1,12 +1,11 @@
 .each-project {
+  width: 95% !important;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  gap: 1rem;
-  width: 300px;
-  background-color: var(--card-bg-color);
-  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.15);
+  background-color: var(--card-bg-color) !important;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.15) !important;
   padding: 1.5rem;
   border-radius: 0.4rem;
 }
@@ -17,6 +16,7 @@
   object-fit: cover;
   object-position: top;
   border-radius: 0.4rem;
+  margin-bottom: 1rem;
 }
 
 .each-project-content {
@@ -26,10 +26,40 @@
   justify-content: flex-start;
 }
 
-.each-project-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: flex-start;
-  gap: 2rem;
+/* Slider */
+
+/* Arrows */
+.slick-prev::before {
+  color: var(--title-color) !important;
+}
+
+.slick-next:before {
+  color: var(--title-color) !important;
+}
+
+/* Pagination */
+
+.slick-dots li button:before {
+  position: absolute;
+  top: 50% !important;
+  left: auto;
+  color: var(--title-color) !important;
+}
+
+@media only screen and (max-width: 1000px) {
+  .slick-slider {
+    margin: 0 50px;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .slick-slider {
+    margin: 0 20px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .slick-slider {
+    margin: 0 20px;
+  }
 }

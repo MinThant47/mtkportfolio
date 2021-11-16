@@ -13,6 +13,7 @@ function App() {
     <Router>
       <div className="App">
         <ScrollToTop />
+
         <Nav />
         <Switch>
           <Route exact path="/">

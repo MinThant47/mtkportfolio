@@ -45,7 +45,12 @@ const Portfolio = () => {
                 </div>
               </div>
               {open === data.id ? (
-                <Modal open={open} setOpen={setOpen} data={data} />
+                <Modal
+                  open={open}
+                  setOpen={setOpen}
+                  data={data}
+                  setSelectedData={setOpen}
+                />
               ) : null}
             </div>
           );
