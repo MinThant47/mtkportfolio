@@ -29,9 +29,9 @@ const Footer = () => {
               </a>
             </li>
             <li className="footer-item">
-              <a href="/all-projects" className="footer-link">
+              <Link to="/all-projects" className="footer-link">
                 All Projects
-              </a>
+              </Link>
             </li>
           </ul>
           <div className="footer-social">

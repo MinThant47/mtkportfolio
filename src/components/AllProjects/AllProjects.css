@@ -1,0 +1,35 @@
+.each-project {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 1rem;
+  width: 300px;
+  background-color: var(--card-bg-color);
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.15);
+  padding: 1.5rem;
+  border-radius: 0.4rem;
+}
+
+.project-img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 0.4rem;
+}
+
+.each-project-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.each-project-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 2rem;
+}

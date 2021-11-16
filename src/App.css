@@ -104,7 +104,20 @@ p {
 }
 
 .category-text {
+  margin-top: 0.5rem;
   color: var(--secondary-color);
+  font-size: 0.9rem;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.overflow-text {
+  -webkit-line-clamp: 4;
+  max-height: 7.3rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* Ultility Classes */

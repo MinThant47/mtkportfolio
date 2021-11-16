@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const Nav = () => {
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(true);
   const [toggle, setToggle] = useState(false);
 
   useEffect(() => {

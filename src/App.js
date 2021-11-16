@@ -3,14 +3,16 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Nav from "./components/Nav/Nav";
 import Footer from "./components/Footer/Footer";
 import Home from "./components/Home";
+import ScrollToTop from "./components/ScrollToTop";
+import AllProjects from "./components/AllProjects/AllProjects";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import AllProjects from "./components/AllProjects";
 
 function App() {
   return (
     <Router>
       <div className="App">
+        <ScrollToTop />
         <Nav />
         <Switch>
           <Route exact path="/">
