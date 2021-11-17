@@ -24,13 +24,9 @@ const Nav = () => {
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
-
+    window.pageYOffset === 0 ? setShadow(true) : setShadow(false);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [prevScrollPos, visible, handleScroll]);
-
-  useEffect(() => {
-    window.pageYOffset === 0 ? setShadow(true) : setShadow(false);
-  });
 
   useEffect(() => {
     isDark
@@ -40,7 +36,7 @@ const Nav = () => {
 
   return (
     <header
-      style={{ top: visible ? "0" : "-100px", opactiy: visible ? "1" : "0" }}
+      style={{ top: visible ? "0" : "-100%", opactiy: visible ? "1" : "0" }}
       className={shadow ? "rm-shadow" : ""}
     >
       <nav className="navigation container pt-4">
@@ -52,32 +48,56 @@ const Nav = () => {
 
         <ul className={`nav-list ${toggle ? "active" : ""}`}>
           <li className="nav-items">
-            <a href="/" className="nav-links">
+            <a
+              onClick={() => setToggle((prev) => !prev)}
+              href="/"
+              className="nav-links"
+            >
               <i className="uil uil-estate nav-icons"></i>Home
             </a>
           </li>
           <li className="nav-items">
-            <a href="/#about" className="nav-links">
+            <a
+              onClick={() => setToggle((prev) => !prev)}
+              href="/#about"
+              className="nav-links"
+            >
               <i className="uil uil-user nav-icons"></i>About
             </a>
           </li>
           <li className="nav-items">
-            <a href="/#skills" className="nav-links">
+            <a
+              onClick={() => setToggle((prev) => !prev)}
+              href="/#skills"
+              className="nav-links"
+            >
               <i className="uil uil-setting nav-icons"></i>Skills
             </a>
           </li>
           <li className="nav-items">
-            <a href="/#services" className="nav-links">
+            <a
+              onClick={() => setToggle((prev) => !prev)}
+              href="/#services"
+              className="nav-links"
+            >
               <i className="uil uil-briefcase-alt nav-icons"></i>Services
             </a>
           </li>
           <li className="nav-items">
-            <a href="/#portfolio" className="nav-links">
+            <a
+              onClick={() => setToggle((prev) => !prev)}
+              href="/#portfolio"
+              className="nav-links"
+            >
               <i className="uil uil-scenery nav-icons"></i>Portfolio
             </a>
           </li>
           <li className="nav-items">
-            <a href="/#contact" className="nav-links">
+            <a
+              onClick={() => setToggle((prev) => !prev)}
+              href="/#contact"
+              className="nav-links"
+            >
               <i className="uil uil-message nav-icons"></i> Contact
             </a>
           </li>

@@ -10,6 +10,7 @@ header {
 
 header.rm-shadow {
   box-shadow: none;
+  background-color: transparent;
 }
 
 .navigation {
