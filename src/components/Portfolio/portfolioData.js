@@ -41,7 +41,11 @@ export const portfolioData = [
     img: [
       {
         id: 1,
-        src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5g1OnEHeo9Yb-HR5QKgJy9cPLirhdKf0RlaSlzZiqLwMZ_kOo-r1S64Pm1czd93gz-uM&usqp=CAU",
+        src: "https://www.hellokpop.com/wp-content/uploads/2017/03/img-xl-1489134438425.jpg",
+      },
+      {
+        id: 2,
+        src: "https://wallpaperaccess.com/full/5244392.jpg",
       },
     ],
     title: "Hello Kittie",
