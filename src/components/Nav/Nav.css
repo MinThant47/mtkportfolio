@@ -1,5 +1,18 @@
-.navigation {
+header {
   background-color: var(--bg-color);
+  box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.05);
+  z-index: 10;
+  position: fixed;
+  width: 100%;
+  transition: all 0.3s ease-in-out;
+  height: 70px;
+}
+
+header.rm-shadow {
+  box-shadow: none;
+}
+
+.navigation {
   position: relative;
   display: flex;
   justify-content: space-between;

@@ -1,10 +1,36 @@
 import "./Nav.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 
 const Nav = () => {
   const [isDark, setIsDark] = useState(true);
   const [toggle, setToggle] = useState(false);
+
+  // hide nav when scroll down & show when scroll up
+  const [shadow, setShadow] = useState(false);
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [visible, setVisible] = useState(true);
+
+  const handleScroll = useCallback(() => {
+    // find current scroll position
+    const currentScrollPos = window.pageYOffset;
+
+    // set state based on location info
+    setVisible(prevScrollPos > currentScrollPos || currentScrollPos < 10);
+
+    // set state to new scroll position
+    setPrevScrollPos(currentScrollPos);
+  }, [prevScrollPos]);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [prevScrollPos, visible, handleScroll]);
+
+  useEffect(() => {
+    window.pageYOffset === 0 ? setShadow(true) : setShadow(false);
+  });
 
   useEffect(() => {
     isDark
@@ -13,7 +39,10 @@ const Nav = () => {
   }, [isDark]);
 
   return (
-    <header>
+    <header
+      style={{ top: visible ? "0" : "-100px", opactiy: visible ? "1" : "0" }}
+      className={shadow ? "rm-shadow" : ""}
+    >
       <nav className="navigation container pt-4">
         <div className="logo">
           <Link to="/">
