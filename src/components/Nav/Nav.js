@@ -3,7 +3,7 @@ import { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 
 const Nav = () => {
-  const [isDark, setIsDark] = useState(true);
+  const [isDark, setIsDark] = useState(null);
   const [toggle, setToggle] = useState(false);
 
   // hide nav when scroll down & show when scroll up
@@ -27,6 +27,17 @@ const Nav = () => {
     window.pageYOffset === 0 ? setShadow(true) : setShadow(false);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [prevScrollPos, visible, handleScroll]);
+
+  useEffect(() => {
+    var data = localStorage.getItem("isDark");
+    if (data === null) {
+      setIsDark(true);
+      console.log("was null setting to false");
+    } else {
+      data = JSON.parse(data);
+      setIsDark(data);
+    }
+  }, []);
 
   useEffect(() => {
     isDark
@@ -108,6 +119,7 @@ const Nav = () => {
             id="theme"
             onClick={() => {
               setIsDark((prev) => !prev);
+              localStorage.setItem("isDark", !isDark);
             }}
             className={`${isDark ? "uil uil-sun " : "uil uil-moon "} theme`}
           ></i>
