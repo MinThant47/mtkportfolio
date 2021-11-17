@@ -1,14 +1,23 @@
 import "./Contact.css";
 import contactSvg from "../../Assets/contact-portflio.svg";
+import { containerLeft, imgContainer } from "../Animation/Animation";
+import useScroll from "../Animation/useScroll";
+import { motion } from "framer-motion";
 
 export default function Contact() {
+  const [element, controls] = useScroll();
   return (
-    <section className="container section" id="contact">
-      <h4 className="title-text text-center mb-2">Contact</h4>
-      <p className="para-text text-center">Get in touch with me</p>
-
+    <section ref={element} className="container section" id="contact">
+      <motion.div variants={containerLeft} animate={controls}>
+        <h4 className="title-text text-center mb-2">Contact</h4>
+        <p className="para-text text-center">Get in touch with me</p>
+      </motion.div>
       <div className="contact-container">
-        <div className="contact-data">
+        <motion.div
+          variants={containerLeft}
+          animate={controls}
+          className="contact-data"
+        >
           <div className="contact-content">
             <i className="uil uil-phone-alt contact-icon"></i>
             <div className="contact-info">
@@ -32,9 +41,15 @@ export default function Contact() {
               <p className="para-text contact-info-text">Yangon, Myanmar</p>
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        <img src={contactSvg} alt="contact SVG" className="contact-svg" />
+        <motion.img
+          variants={imgContainer}
+          animate={controls}
+          src={contactSvg}
+          alt="contact SVG"
+          className="contact-svg"
+        />
       </div>
     </section>
   );

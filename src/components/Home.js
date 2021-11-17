@@ -4,10 +4,11 @@ import Skills from "./Skills/Skills";
 import Services from "./Services/Services";
 import Portfolio from "./Portfolio/Portfolio";
 import Contact from "./Contact/Contact";
+import { motion } from "framer-motion";
 
 const Home = () => {
   return (
-    <div>
+    <motion.div initial="hidden" animate="visible">
       <br />
       <br />
       <Landing />
@@ -17,7 +18,7 @@ const Home = () => {
       <Portfolio />
       <Contact />
       <br />
-    </div>
+    </motion.div>
   );
 };
 

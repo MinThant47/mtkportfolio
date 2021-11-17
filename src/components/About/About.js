@@ -1,11 +1,19 @@
 import "./About.css";
 import resume from "../../Assets/MTK cv form 2021.pdf";
+import { containerLeft, containerRight } from "../Animation/Animation";
+import useScroll from "../Animation/useScroll";
+import { motion } from "framer-motion";
 
 const About = () => {
+  const [element, controls] = useScroll();
   return (
-    <section className="container section" id="about">
+    <section className="container section" ref={element} id="about">
       <div className="about">
-        <div className="about-content">
+        <motion.div
+          variants={containerLeft}
+          animate={controls}
+          className="about-content"
+        >
           <h4 className="title-text mb-3">About my life</h4>
           <p className="para-text mb-3">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo
@@ -20,9 +28,13 @@ const About = () => {
           <a href={resume} download className="btn--primary">
             Get my cv <i className="uil uil-caret-right"></i>
           </a>
-        </div>
+        </motion.div>
 
-        <div className="about-hobby">
+        <motion.div
+          variants={containerRight}
+          animate={controls}
+          className="about-hobby"
+        >
           <div className="hobby-grid">
             <div className="hobby">
               <h5 className="secondary-title-text">01.</h5>
@@ -46,7 +58,7 @@ const About = () => {
               </p>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

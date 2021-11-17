@@ -1,8 +1,12 @@
 import "./Skills.css";
 import { useState } from "react";
 import { SkillData } from "./skillData";
+import { containerLeft, imgContainer } from "../Animation/Animation";
+import useScroll from "../Animation/useScroll";
+import { motion } from "framer-motion";
 
 const Skills = () => {
+  const [element, controls] = useScroll();
   const [click, setClick] = useState([
     {
       id: 1,
@@ -34,16 +38,22 @@ const Skills = () => {
   };
 
   return (
-    <section className="container section" id="skills">
-      <div className="skill-title">
+    <section ref={element} className="container section" id="skills">
+      <motion.div
+        variants={containerLeft}
+        animate={controls}
+        className="skill-title"
+      >
         <h4 className="title-text mb-2">Skills</h4>
         <p className="para-text">Things I'm capable of</p>
-      </div>
+      </motion.div>
 
       <div className="skill-container">
         {SkillData.map((data, index) => {
           return (
-            <div
+            <motion.div
+              variants={imgContainer}
+              animate={controls}
               key={data.id}
               onClick={() => handleClick(index)}
               className={`skill mb-4 ${click[index].open ? "open" : ""}`}
@@ -77,7 +87,7 @@ const Skills = () => {
                   );
                 })}
               </div>
-            </div>
+            </motion.div>
           );
         })}
       </div>

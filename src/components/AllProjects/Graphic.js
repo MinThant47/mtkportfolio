@@ -1,17 +1,27 @@
 import { graphicData } from "../Portfolio/graphicData";
 import EachProject from "./EachProject";
+import { motion } from "framer-motion";
+import { containerLeft, containerRight } from "../Animation/Animation";
+import useScroll from "../Animation/useScroll";
 
 const Graphic = ({ setSelectedData, setOpen }) => {
+  const [element, controls] = useScroll();
   return (
-    <section className="mt-5 container graphic">
-      <h6 className="title-text mb-4">03. Graphic Designs</h6>
-      <div>
+    <section ref={element} className="mt-5 container graphic">
+      <motion.h6
+        variants={containerLeft}
+        animate={controls}
+        className="title-text mb-4"
+      >
+        03. Graphic Designs
+      </motion.h6>
+      <motion.div variants={containerRight} animate={controls}>
         <EachProject
           data={graphicData}
           setSelectedData={setSelectedData}
           setOpen={setOpen}
         />
-      </div>
+      </motion.div>
     </section>
   );
 };

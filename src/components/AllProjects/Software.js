@@ -1,13 +1,27 @@
 import { portfolioData } from "../Portfolio/portfolioData";
 import EachProject from "./EachProject";
+import { motion } from "framer-motion";
+import { containerLeft, containerRight } from "../Animation/Animation";
+import useScroll from "../Animation/useScroll";
 
 const Software = ({ setSelectedData, setOpen }) => {
+  const [element, controls] = useScroll();
   return (
-    <section className="mt-5 container software">
-      <h6 className="title-text mb-4">01. Software Development</h6>
-      <div>
-        <EachProject data={portfolioData} setSelectedData={setSelectedData} setOpen={setOpen}/>
-      </div>
+    <section ref={element} className="mt-5 container software">
+      <motion.h6
+        variants={containerLeft}
+        animate={controls}
+        className="title-text mb-4"
+      >
+        01. Software Development
+      </motion.h6>
+      <motion.div variants={containerRight} animate={controls}>
+        <EachProject
+          data={portfolioData}
+          setSelectedData={setSelectedData}
+          setOpen={setOpen}
+        />
+      </motion.div>
     </section>
   );
 };
