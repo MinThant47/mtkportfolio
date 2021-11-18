@@ -28,7 +28,7 @@ const Electronics = ({ setSelectedData, setOpen }) => {
       <motion.h6
         variants={containerLeft}
         animate={controls}
-        className="title-text mb-4"
+        className="secondary-title-text mb-4"
       >
         02. Electronic Projects
       </motion.h6>

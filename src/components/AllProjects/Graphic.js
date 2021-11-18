@@ -28,7 +28,7 @@ const Graphic = ({ setSelectedData, setOpen }) => {
       <motion.h6
         variants={containerLeft}
         animate={controls}
-        className="title-text mb-4"
+        className="secondary-title-text mb-4"
       >
         03. Graphic Designs
       </motion.h6>
