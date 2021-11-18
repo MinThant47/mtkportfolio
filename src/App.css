@@ -7,6 +7,7 @@
   --secondary-color-alt: #5b5b5b;
   --title-color: #5a5a5a;
   --nav-item-color: var(--secondary-color);
+  --skeleton-color: #ddd;
 
   --white: #ffffff;
 
@@ -40,6 +41,7 @@ body.dark {
   --bg-color: #292929;
   --card-bg-color: #2c2c2c;
   --nav-item-color: var(--white);
+  --skeleton-color: #444;
 }
 
 ul {

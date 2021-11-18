@@ -7,6 +7,7 @@ import useScroll from "../Animation/useScroll";
 import { motion } from "framer-motion";
 import { client } from "../../Backend/client";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import SkeletonPortfolio from "../Skeleton/SkeletonPortfolio";
 
 const Portfolio = () => {
   const [portfolioData, setPortfolioData] = useState(null);
@@ -58,11 +59,12 @@ const Portfolio = () => {
                       className="portfolio-img"
                     />
                     <div className="portfolio-data">
-                      <h4 className="secondary-title-text mb-2">
+                      <h4 className="secondary-title-text">
                         {data.fields.title}
                       </h4>
-                      <p className="category-text">{data.fields.category}</p>
-                      <hr />
+                      <p className="category-text mb-3">
+                        {data.fields.category}
+                      </p>
 
                       <div className="overflow-text para-text mb-3">
                         {documentToReactComponents(data.fields.text)}
@@ -89,7 +91,9 @@ const Portfolio = () => {
                 </motion.div>
               );
             })
-          : null}
+          : [1, 2].map((index) => {
+              return <SkeletonPortfolio key={index} />;
+            })}
       </motion.div>
     </section>
   );

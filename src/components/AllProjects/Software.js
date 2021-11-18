@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { containerLeft, downContainer } from "../Animation/Animation";
 import useScroll from "../Animation/useScroll";
 import { client } from "../../Backend/client";
+import Skeleton from "../Skeleton/Skeleton";
 
 const Software = ({ setSelectedData, setOpen }) => {
   const [softwareData, setSoftwareData] = useState(null);
@@ -31,13 +32,21 @@ const Software = ({ setSelectedData, setOpen }) => {
       >
         01. Software Development
       </motion.h6>
-      <motion.div variants={downContainer} animate={controls}>
-        <EachProject
-          data={softwareData}
-          setSelectedData={setSelectedData}
-          setOpen={setOpen}
-        />
-      </motion.div>
+      {softwareData ? (
+        <motion.div variants={downContainer} animate={controls}>
+          <EachProject
+            data={softwareData}
+            setSelectedData={setSelectedData}
+            setOpen={setOpen}
+          />
+        </motion.div>
+      ) : (
+        <div className="skeleton-wrapper">
+          {[1, 2, 3].map((index) => {
+            return <Skeleton key={index} />;
+          })}
+        </div>
+      )}
     </section>
   );
 };

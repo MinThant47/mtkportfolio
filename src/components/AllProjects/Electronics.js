@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { containerLeft, downContainer } from "../Animation/Animation";
 import useScroll from "../Animation/useScroll";
 import { client } from "../../Backend/client";
+import Skeleton from "../Skeleton/Skeleton";
 
 const Electronics = ({ setSelectedData, setOpen }) => {
   const [electronicsData, setElectronicsData] = useState(null);
@@ -31,13 +32,21 @@ const Electronics = ({ setSelectedData, setOpen }) => {
       >
         02. Electronic Projects
       </motion.h6>
-      <motion.div variants={downContainer} animate={controls}>
-        <EachProject
-          data={electronicsData}
-          setSelectedData={setSelectedData}
-          setOpen={setOpen}
-        />
-      </motion.div>
+      {electronicsData ? (
+        <motion.div variants={downContainer} animate={controls}>
+          <EachProject
+            data={electronicsData}
+            setSelectedData={setSelectedData}
+            setOpen={setOpen}
+          />
+        </motion.div>
+      ) : (
+        <div className="skeleton-wrapper">
+          {[1, 2, 3].map((index) => {
+            return <Skeleton key={index} />;
+          })}
+        </div>
+      )}
     </section>
   );
 };
