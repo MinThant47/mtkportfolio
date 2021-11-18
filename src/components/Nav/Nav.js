@@ -1,8 +1,12 @@
 import "./Nav.css";
 import { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
+import { navContainer } from "../Animation/Animation";
+import useScroll from "../Animation/useScroll";
+import { motion } from "framer-motion";
 
 const Nav = () => {
+  const [element, controls] = useScroll();
   const [isDark, setIsDark] = useState(null);
   const [toggle, setToggle] = useState(false);
 
@@ -47,10 +51,15 @@ const Nav = () => {
 
   return (
     <header
+      ref={element}
       style={{ top: visible ? "0" : "-100%", opactiy: visible ? "1" : "0" }}
       className={shadow ? "rm-shadow" : ""}
     >
-      <nav className="navigation container pt-4">
+      <motion.nav
+        variants={navContainer}
+        animate={controls}
+        className="navigation container pt-4"
+      >
         <div className="logo">
           <Link to="/">
             <h5 className="title-text">MTK</h5>
@@ -133,7 +142,7 @@ const Nav = () => {
             } nav-toggle`}
           ></i>
         </div>
-      </nav>
+      </motion.nav>
     </header>
   );
 };

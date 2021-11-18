@@ -1,7 +1,7 @@
 import { portfolioData } from "../Portfolio/portfolioData";
 import EachProject from "./EachProject";
 import { motion } from "framer-motion";
-import { containerLeft, containerRight } from "../Animation/Animation";
+import { containerLeft, opacityContainer } from "../Animation/Animation";
 import useScroll from "../Animation/useScroll";
 
 const Software = ({ setSelectedData, setOpen }) => {
@@ -15,7 +15,7 @@ const Software = ({ setSelectedData, setOpen }) => {
       >
         01. Software Development
       </motion.h6>
-      <motion.div variants={containerRight} animate={controls}>
+      <motion.div variants={opacityContainer} animate={controls}>
         <EachProject
           data={portfolioData}
           setSelectedData={setSelectedData}

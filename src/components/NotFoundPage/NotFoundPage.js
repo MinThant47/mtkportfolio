@@ -2,11 +2,7 @@ import "./NotFoundPage.css";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { motion } from "framer-motion";
-import {
-  containerLeft,
-  containerRight,
-  imgContainer,
-} from "../Animation/Animation";
+import { containerLeft, imgContainer } from "../Animation/Animation";
 import useScroll from "../Animation/useScroll";
 
 const NotFoundPage = () => {
@@ -32,7 +28,7 @@ const NotFoundPage = () => {
             Oops...You get lost!{" "}
           </motion.p>
           <motion.p
-            variants={containerRight}
+            variants={containerLeft}
             animate={controls}
             className="text-center para-text"
           >

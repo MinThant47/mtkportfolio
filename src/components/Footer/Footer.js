@@ -35,13 +35,22 @@ const Footer = () => {
             </li>
           </ul>
           <div className="footer-social">
-            <a href="/" className="footer-icon">
+            <a
+              href="https://www.facebook.com/minthantkyaw47"
+              className="footer-icon"
+            >
               <i className="uil uil-facebook-f"></i>
             </a>
-            <a href="/" className="footer-icon">
+            <a
+              href="https://www.instagram.com/min_thant4747/"
+              className="footer-icon"
+            >
               <i className="uil uil-instagram"></i>
             </a>
-            <a href="/" className="footer-icon">
+            <a
+              href="https://twitter.com/MinThant47?t=nuSFaWFNdPeU9xa1ul_QRA&s=09"
+              className="footer-icon"
+            >
               <i className="uil uil-twitter-alt"></i>
             </a>
           </div>

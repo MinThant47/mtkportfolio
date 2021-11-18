@@ -47,6 +47,7 @@ export default function Contact() {
           variants={imgContainer}
           animate={controls}
           src={contactSvg}
+          transition={{ delay: 0.4 }}
           alt="contact SVG"
           className="contact-svg"
         />

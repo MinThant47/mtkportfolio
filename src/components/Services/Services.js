@@ -15,6 +15,7 @@ const Services = () => {
         <motion.div
           variants={imgContainer}
           animate={controls}
+          transition={{ delay: 0.2 }}
           className="service-card"
         >
           <i className="uil uil-brackets-curly"></i>
@@ -23,6 +24,7 @@ const Services = () => {
         <motion.div
           variants={imgContainer}
           animate={controls}
+          transition={{ delay: 0.3 }}
           className="service-card"
         >
           <i className="uil uil-server-connection"></i>
@@ -31,6 +33,7 @@ const Services = () => {
         <motion.div
           variants={imgContainer}
           animate={controls}
+          transition={{ delay: 0.4 }}
           className="service-card"
         >
           <i className="uil uil-circuit"></i>
@@ -39,6 +42,7 @@ const Services = () => {
         <motion.div
           variants={imgContainer}
           animate={controls}
+          transition={{ delay: 0.4 }}
           className="service-card"
         >
           <i className="uil uil-swatchbook"></i>

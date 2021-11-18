@@ -1,20 +1,6 @@
 export const containerLeft = {
   hidden: {
-    x: -100,
-    opacity: 0,
-  },
-  visible: {
-    x: 0,
-    opacity: 1,
-    transition: {
-      duration: 0.5,
-    },
-  },
-};
-
-export const containerRight = {
-  hidden: {
-    x: 100,
+    x: -50,
     opacity: 0,
   },
   visible: {
@@ -28,11 +14,39 @@ export const containerRight = {
 
 export const imgContainer = {
   hidden: {
-    scale: 1.2,
+    scale: 0.5,
     opacity: 0,
   },
   visible: {
     scale: 1,
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+    },
+  },
+};
+
+export const opacityContainer = {
+  hidden: {
+    y: -50,
+    opacity: 0,
+  },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+    },
+  },
+};
+
+export const navContainer = {
+  hidden: {
+    y: -50,
+    opacity: 0,
+  },
+  visible: {
+    y: 0,
     opacity: 1,
     transition: {
       duration: 0.5,

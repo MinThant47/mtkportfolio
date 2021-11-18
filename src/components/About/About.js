@@ -1,6 +1,6 @@
 import "./About.css";
 import resume from "../../Assets/MTK cv form 2021.pdf";
-import { containerLeft, containerRight } from "../Animation/Animation";
+import { containerLeft, imgContainer } from "../Animation/Animation";
 import useScroll from "../Animation/useScroll";
 import { motion } from "framer-motion";
 
@@ -31,8 +31,9 @@ const About = () => {
         </motion.div>
 
         <motion.div
-          variants={containerRight}
+          variants={imgContainer}
           animate={controls}
+          transition={{ delay: 0.4 }}
           className="about-hobby"
         >
           <div className="hobby-grid">
