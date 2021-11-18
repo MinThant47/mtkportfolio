@@ -1,13 +1,15 @@
 import "./Portfolio.css";
-import { portfolioData } from "./portfolioData";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Modal from "../Modal/Modal";
 import { containerLeft, imgContainer } from "../Animation/Animation";
 import useScroll from "../Animation/useScroll";
 import { motion } from "framer-motion";
+import { client } from "../../Backend/client";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 const Portfolio = () => {
+  const [portfolioData, setPortfolioData] = useState(null);
   const [element, controls] = useScroll();
   const [open, setOpen] = useState(0);
   useEffect(() => {
@@ -15,6 +17,18 @@ const Portfolio = () => {
       ? (document.body.style.overflow = "hidden")
       : (document.body.style.overflow = "visible");
   }, [open]);
+
+  useEffect(() => {
+    client
+      .getEntries({ content_type: "portfolio" })
+      .then((res) => {
+        setPortfolioData(res.items);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
   return (
     <section ref={element} className="container section" id="portfolio">
       <motion.div variants={containerLeft} animate={controls}>
@@ -27,48 +41,55 @@ const Portfolio = () => {
         </p>
       </motion.div>
 
-      <motion.div
-        className="portfolio-grid"
-        transition={{ when: "beforeChildren", staggerChildren: 0.5 }}
-      >
-        {portfolioData.map((data) => {
-          return (
-            <motion.div
-              variants={imgContainer}
-              animate={controls}
-              className="portfolio-container"
-              key={data.id}
-            >
-              <div className="porfolio-content">
-                <img
-                  src={data.img[0].src}
-                  alt={data.title}
-                  className="portfolio-img"
-                />
-                <div className="portfolio-data">
-                  <h4 className="secondary-title-text mb-2">{data.title}</h4>
-                  <p className="category-text">{data.category}</p>
-                  <hr />
-                  <p className="overflow-text para-text mb-3">{data.text}</p>
-                  <button
-                    onClick={() => setOpen(data.id)}
-                    className="btn--primary portfolio-btn"
-                  >
-                    Read More
-                  </button>
-                </div>
-              </div>
-              {open === data.id ? (
-                <Modal
-                  open={open}
-                  setOpen={setOpen}
-                  data={data}
-                  setSelectedData={setOpen}
-                />
-              ) : null}
-            </motion.div>
-          );
-        })}
+      <motion.div className="portfolio-grid">
+        {portfolioData
+          ? portfolioData.slice(0, 4).map((data) => {
+              return (
+                <motion.div
+                  variants={imgContainer}
+                  animate={controls}
+                  className="portfolio-container"
+                  key={data.sys.id}
+                >
+                  <div className="porfolio-content">
+                    <img
+                      src={data.fields.image[0].fields.file.url}
+                      alt={data.fields.title}
+                      className="portfolio-img"
+                    />
+                    <div className="portfolio-data">
+                      <h4 className="secondary-title-text mb-2">
+                        {data.fields.title}
+                      </h4>
+                      <p className="category-text">{data.fields.category}</p>
+                      <hr />
+
+                      <div className="overflow-text para-text mb-3">
+                        {documentToReactComponents(data.fields.text)}
+                      </div>
+
+                      <button
+                        onClick={() => setOpen(data.sys.id)}
+                        className="btn--primary portfolio-btn"
+                      >
+                        Read More
+                      </button>
+                    </div>
+                  </div>
+                  {open === data.sys.id ? (
+                    <Modal
+                      open={open}
+                      setOpen={setOpen}
+                      data={data}
+                      setSelectedData={setOpen}
+                    />
+                  ) : (
+                    <></>
+                  )}
+                </motion.div>
+              );
+            })
+          : null}
       </motion.div>
     </section>
   );

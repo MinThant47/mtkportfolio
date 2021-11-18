@@ -1,10 +1,26 @@
-import { electronicData } from "../Portfolio/electronicData";
+import { useState, useEffect } from "react";
 import EachProject from "./EachProject";
 import { motion } from "framer-motion";
 import { containerLeft, downContainer } from "../Animation/Animation";
 import useScroll from "../Animation/useScroll";
+import { client } from "../../Backend/client";
 
 const Electronics = ({ setSelectedData, setOpen }) => {
+  const [electronicsData, setElectronicsData] = useState(null);
+  useEffect(() => {
+    client
+      .getEntries({
+        content_type: "portfolio",
+        "fields.category": "Electronics",
+      })
+      .then((res) => {
+        setElectronicsData(res.items);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
   const [element, controls] = useScroll();
   return (
     <section ref={element} className="mt-5 container electronics">
@@ -17,7 +33,7 @@ const Electronics = ({ setSelectedData, setOpen }) => {
       </motion.h6>
       <motion.div variants={downContainer} animate={controls}>
         <EachProject
-          data={electronicData}
+          data={electronicsData}
           setSelectedData={setSelectedData}
           setOpen={setOpen}
         />

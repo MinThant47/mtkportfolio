@@ -1,10 +1,26 @@
-import { portfolioData } from "../Portfolio/portfolioData";
+import { useState, useEffect } from "react";
 import EachProject from "./EachProject";
 import { motion } from "framer-motion";
 import { containerLeft, downContainer } from "../Animation/Animation";
 import useScroll from "../Animation/useScroll";
+import { client } from "../../Backend/client";
 
 const Software = ({ setSelectedData, setOpen }) => {
+  const [softwareData, setSoftwareData] = useState(null);
+  useEffect(() => {
+    client
+      .getEntries({
+        content_type: "portfolio",
+        "fields.category": "Software development",
+      })
+      .then((res) => {
+        setSoftwareData(res.items);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
   const [element, controls] = useScroll();
   return (
     <section ref={element} className="mt-5 container software">
@@ -17,7 +33,7 @@ const Software = ({ setSelectedData, setOpen }) => {
       </motion.h6>
       <motion.div variants={downContainer} animate={controls}>
         <EachProject
-          data={portfolioData}
+          data={softwareData}
           setSelectedData={setSelectedData}
           setOpen={setOpen}
         />

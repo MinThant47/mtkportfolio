@@ -1,5 +1,6 @@
 import "./Modal.css";
 import { useState } from "react";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 const Modal = ({ open, setOpen, data, setSelectedData }) => {
   const [selectedImg, SetselectedImg] = useState(0);
@@ -20,21 +21,21 @@ const Modal = ({ open, setOpen, data, setSelectedData }) => {
           <div className="wrapper">
             <img
               className="img-selected"
-              src={data.img[selectedImg].src}
+              src={data.fields.image[0].fields.file.url}
               alt=""
             />
           </div>
           <div className="project-img-grid">
-            {data.img.map((i, index) => {
+            {data.fields.image.map((i, index) => {
               return (
-                <div key={i.id}>
+                <div key={i.sys.id}>
                   <div
                     onClick={() => SetselectedImg(index)}
                     className={`${
                       selectedImg === index ? "selected" : ""
                     } img-container`}
                   >
-                    <img src={i.src} alt="" />
+                    <img src={i.fields.file.url} alt="" />
                     <div className="overlay">
                       <i className="uil uil-capture"></i>
                     </div>
@@ -45,10 +46,13 @@ const Modal = ({ open, setOpen, data, setSelectedData }) => {
           </div>
         </div>
         <div className="content">
-          <h4 className="title-text">{data.title}</h4>
-          <p className="para-text mb-2">{data.category}</p>
+          <h4 className="title-text">{data.fields.title}</h4>
+          <p className="para-text mb-2">{data.fields.category}</p>
           <hr />
-          <p className="para-text mb-4">{data.text}</p>
+          <p className="para-text mb-4">
+            {" "}
+            {documentToReactComponents(data.fields.text)}
+          </p>
           <button
             onClick={() => {
               setSelectedData(null);

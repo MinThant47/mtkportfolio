@@ -1,10 +1,26 @@
-import { graphicData } from "../Portfolio/graphicData";
+import { useState, useEffect } from "react";
 import EachProject from "./EachProject";
 import { motion } from "framer-motion";
 import { containerLeft, downContainer } from "../Animation/Animation";
 import useScroll from "../Animation/useScroll";
+import { client } from "../../Backend/client";
 
 const Graphic = ({ setSelectedData, setOpen }) => {
+  const [graphicData, setGraphicData] = useState(null);
+  useEffect(() => {
+    client
+      .getEntries({
+        content_type: "portfolio",
+        "fields.category": "Graphic Design",
+      })
+      .then((res) => {
+        setGraphicData(res.items);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
   const [element, controls] = useScroll();
   return (
     <section ref={element} className="mt-5 container graphic">
