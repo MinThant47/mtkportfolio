@@ -1,7 +1,7 @@
 import { electronicData } from "../Portfolio/electronicData";
 import EachProject from "./EachProject";
 import { motion } from "framer-motion";
-import { containerLeft, opacityContainer } from "../Animation/Animation";
+import { containerLeft, downContainer } from "../Animation/Animation";
 import useScroll from "../Animation/useScroll";
 
 const Electronics = ({ setSelectedData, setOpen }) => {
@@ -15,7 +15,7 @@ const Electronics = ({ setSelectedData, setOpen }) => {
       >
         02. Electronic Projects
       </motion.h6>
-      <motion.div variants={opacityContainer} animate={controls}>
+      <motion.div variants={downContainer} animate={controls}>
         <EachProject
           data={electronicData}
           setSelectedData={setSelectedData}

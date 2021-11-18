@@ -1,7 +1,7 @@
 import { graphicData } from "../Portfolio/graphicData";
 import EachProject from "./EachProject";
 import { motion } from "framer-motion";
-import { containerLeft, opacityContainer } from "../Animation/Animation";
+import { containerLeft, downContainer } from "../Animation/Animation";
 import useScroll from "../Animation/useScroll";
 
 const Graphic = ({ setSelectedData, setOpen }) => {
@@ -15,7 +15,7 @@ const Graphic = ({ setSelectedData, setOpen }) => {
       >
         03. Graphic Designs
       </motion.h6>
-      <motion.div variants={opacityContainer} animate={controls}>
+      <motion.div variants={downContainer} animate={controls}>
         <EachProject
           data={graphicData}
           setSelectedData={setSelectedData}

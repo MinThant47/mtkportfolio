@@ -1,11 +1,19 @@
 import "./Footer.css";
 import { Link } from "react-router-dom";
+import { upContainer } from "../Animation/Animation";
+import useScroll from "../Animation/useScroll";
+import { motion } from "framer-motion";
 
 const Footer = () => {
+  const [element, controls] = useScroll();
   return (
-    <footer className="container mb-4">
+    <footer ref={element} className="container mb-4">
       <div className="empty"></div>
-      <div className="footer-container">
+      <motion.div
+        variants={upContainer}
+        animate={controls}
+        className="footer-container"
+      >
         <div className="logo">
           <Link to="/">
             <h5 className="title-text">MTK</h5>
@@ -55,8 +63,14 @@ const Footer = () => {
             </a>
           </div>
         </div>
-      </div>
-      <p className="mt-3 para-text text-center">&copy;copyright2021</p>
+      </motion.div>
+      <motion.p
+        variants={upContainer}
+        animate={controls}
+        className="mt-3 para-text text-center"
+      >
+        &copy;copyright2021
+      </motion.p>
       <div className="empty"></div>
     </footer>
   );

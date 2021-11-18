@@ -26,7 +26,7 @@ export const imgContainer = {
   },
 };
 
-export const opacityContainer = {
+export const downContainer = {
   hidden: {
     y: -50,
     opacity: 0,
@@ -36,6 +36,20 @@ export const opacityContainer = {
     opacity: 1,
     transition: {
       duration: 0.5,
+    },
+  },
+};
+
+export const upContainer = {
+  hidden: {
+    y: 80,
+    opacity: 0,
+  },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.8,
     },
   },
 };
