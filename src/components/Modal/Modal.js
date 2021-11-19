@@ -21,7 +21,7 @@ const Modal = ({ open, setOpen, data, setSelectedData }) => {
           <div className="wrapper">
             <img
               className="img-selected"
-              src={data.fields.image[0].fields.file.url}
+              src={data.fields.image[selectedImg].fields.file.url}
               alt=""
             />
           </div>
