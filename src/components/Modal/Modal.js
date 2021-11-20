@@ -49,8 +49,7 @@ const Modal = ({ open, setOpen, data, setSelectedData }) => {
           <h4 className="title-text">{data.fields.title}</h4>
           <p className="para-text mb-2">{data.fields.category}</p>
           <hr />
-          <p className="para-text mb-4">
-            {" "}
+          <p className="wrap-text para-text mb-4">
             {documentToReactComponents(data.fields.text)}
           </p>
           <button

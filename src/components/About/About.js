@@ -16,14 +16,14 @@ const About = () => {
         >
           <h4 className="title-text mb-3">About my life</h4>
           <p className="para-text mb-3">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo
-            voluptate repudiandae, sunt fugit nisi labore quis praesentium,
-            optio tenetur, eum debitis error iusto ad fuga neque ea quasi quo
+          20-year-old youngster with a passion for electronics, programming, and graphic design.
           </p>
           <p className="para-text mb-3">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo
-            voluptate repudiandae, sunt fugit nisi labore quis praesentium,
-            optio tenetur, eum debitis error iusto ad fuga neque ea quasi quo
+        
+I have a lot of experience with the frontend development. Currently, I'm working as a freelance web developer and graphic designer.   
+          </p>
+          <p className="para-text mb-3">
+          Despite the fact that my current bachelor's degree is in electronics, I am much more interested in coding and algorithms.
           </p>
           <a href={resume} download className="btn--primary">
             Get my cv <i className="uil uil-caret-right"></i>

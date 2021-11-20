@@ -5,8 +5,9 @@
   gap: 4rem;
 }
 
-.big {
-  font-size: 3rem;
+#mtk {
+  color: var(title-color);
+  font-size: 2rem;
 }
 
 .landing img {
@@ -45,6 +46,13 @@
 
   .landing img {
     margin-bottom: 2rem;
+  }
+}
+
+@media only screen and (max-width: 368px) {
+  #mtk {
+    color: var(title-color);
+    font-size: 1.6rem;
   }
 }
 

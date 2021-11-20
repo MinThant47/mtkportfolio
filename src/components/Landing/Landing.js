@@ -21,15 +21,16 @@ const Landing = () => {
           variants={containerLeft}
           animate={controls}
         >
-          <h4 className="title-text big mb-3">Who am I?</h4>
+          <h4 className="title-text mb-3">
+            <span id="mtk">Min Thant Kyaw </span>
+          </h4>
           <p className="para-text mb-3">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo
-            voluptate repudiandae, sunt fugit nisi labore quis praesentium,
-            optio tenetur, eum debitis error iusto ad fuga neque ea quasi quo
+            An Electronic engineering student at the undergraduate level who is
+            able to complete tasks on schedule with excellent flexibility.
           </p>
           <div className="btn-links">
-            <a href="/#about" className="btn--primary">
-              Explore
+            <a href="/#contact" className="btn--primary">
+              Contact
             </a>
             <a
               href="https://github.com/MinThant47?tab=repositories"

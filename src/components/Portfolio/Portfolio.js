@@ -21,7 +21,7 @@ const Portfolio = () => {
 
   useEffect(() => {
     client
-      .getEntries({ content_type: "portfolio" })
+      .getEntries({ content_type: "portfolio"})
       .then((res) => {
         setPortfolioData(res.items);
       })
